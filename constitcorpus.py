@@ -6,8 +6,10 @@ def filtre_corpus():
         corpus_filtre = []
         for line in corpus :
             balises = re.compile(r"<(i|n|a)>.*<\/(i|n|a)>")
+            br = re.compile(r"<br \/>")
             result = balises.search(line)
             if result != None :
+                line = re.sub(br, "", line)
                 corpus_filtre.append(line)  
         return corpus_filtre
 
