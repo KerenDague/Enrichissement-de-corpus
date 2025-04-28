@@ -7,12 +7,6 @@ Il extrait pour chaque "on" :
 - Le contexte droit (quelques mots après),
 - Le label associé ("indéfini" ou "nous").
 
-Le résultat est une liste de dictionnaires, chacun contenant :
-- 'contexte_gauche' : mots précédant "on",
-- 'on' : le mot "on",
-- 'contexte_droit' : mots suivant "on",
-- 'label' : type d'usage de "on".
-
 """
 import pandas as pd
 import spacy
