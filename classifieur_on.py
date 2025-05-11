@@ -12,6 +12,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 import json
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import cohen_kappa_score
+
+
 
 
 # === Entraînement ===
@@ -50,10 +53,12 @@ def classifie_on(corpus_test):
         print(f"\nPhrase : {phrase}")
         print(f"→ Interprétation de 'on' : **{prediction}**")
         print(f"Réelle valeur du on : {labels_test[i]}")
-        
+
     score_pourcentage = accuracy_score(labels_test, predictions)
     score_count = accuracy_score(labels_test, predictions, normalize=False)
+    cohen = cohen_kappa_score(labels_test, predictions)
     print(f"\n{score_pourcentage * 100}% de bonnes prédictions, soit {score_count} bonnes prédictions sur {len(predictions)}")
+    print(f"Kappa de cohen : {cohen}")
 
 # === Exemple ===
 if __name__ == "__main__":
