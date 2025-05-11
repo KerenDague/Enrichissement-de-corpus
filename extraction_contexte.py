@@ -14,7 +14,7 @@ import json
 
 nlp = spacy.load("fr_core_news_md")
 
-df = pd.read_csv("B2.csv") 
+df = pd.read_csv("../B2_filtre.csv") 
 
 # Fonction pour récupérer un contexte limité par ponctuation ou nombre de mots
 def recuperer_contexte(tokens, start_idx, direction, max_mots=10):
@@ -41,7 +41,7 @@ def extraire_contextes_et_label(texte):
     if not isinstance(texte, str):
         return resultats
 
-    texte_modifie = texte.replace('<i>on</i>', ' ON_INDEFINI ').replace('<n>on</n>', ' ON_NOUS ')
+    texte_modifie = texte.replace('<i>on</i>', ' ON_INDEFINI ').replace('<n>on</n>', ' ON_NOUS ').replace('<n>On</n>', ' ON_NOUS ').replace('<i>On</i>', ' ON_INDEFINI ')
     doc = nlp(texte_modifie)
 
     for i, token in enumerate(doc):
