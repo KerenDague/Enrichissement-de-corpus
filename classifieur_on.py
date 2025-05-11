@@ -58,7 +58,7 @@ def classifie_on(corpus_test):
     score_count = accuracy_score(labels_test, predictions, normalize=False)
     cohen = cohen_kappa_score(labels_test, predictions)
     print(f"\n{score_pourcentage * 100}% de bonnes prédictions, soit {score_count} bonnes prédictions sur {len(predictions)}")
-    print(f"Kappa de cohen : {cohen}")
+    print(f"Kappa de Cohen : {cohen}")
 
 # === Exemple ===
 if __name__ == "__main__":
