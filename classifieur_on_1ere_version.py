@@ -13,8 +13,7 @@ from sklearn.model_selection import train_test_split
 import json
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import cohen_kappa_score
-
-
+from sklearn.model_selection import cross_val_score
 
 
 # === Entraînement ===
@@ -39,7 +38,8 @@ corpus_train, corpus_test, labels_train, labels_test = train_test_split(corpus_c
 vectorizer = TfidfVectorizer(ngram_range=(1,2), max_features=1000)
 X = vectorizer.fit_transform(corpus_train)
 model = LogisticRegression()
-model.fit(X, labels_train)
+model = model.fit(X, labels_train)
+
 
 
 # === Prédiction ===
@@ -60,7 +60,12 @@ def classifie_on(corpus_test):
     print(f"\n{score_pourcentage * 100}% de bonnes prédictions, soit {score_count} bonnes prédictions sur {len(predictions)}")
     print(f"Kappa de Cohen : {cohen}")
 
-# === Exemple ===
+    scores = cross_val_score(model, X, labels_train, cv=10)
+    print('\nScores de validation croisée : ', scores)
+    mean_score = scores.mean()
+    print('Score moyen de validation croisée : ', mean_score)
+    
+    # === Exemple ===
 if __name__ == "__main__":
     classifie_on(corpus_test)
 
