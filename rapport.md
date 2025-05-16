@@ -4,18 +4,31 @@
 ## Sommaire
 
 1. Présentation du Projet et du Corpus
+
     A. Projet et Problématique
+
     B. Le Corpus TCFLE-8
+
     C. Nettoyage du Corpus
+
 2. Résultats Statistiques]
+
     A. Résultats de l’Annotation Manuelle
+
     B. Accord Inter-Annotateur
+
     C. Calcul de Significativité
+
 3. Perspectives linguistiques
+
 4. Entraînement d’un classifieur
+
     A. Nettoyage des données
+
     B. Extraction des contextes
+
     C. Entraînement du classifieur et résultats
+
 5. Conclusion
 
 ---
@@ -136,7 +149,7 @@ ayant un “s” final à l’écrit sur le pronom “on” /õ/ qui donnerait p
 Afin d’entraîner notre classifieur, nous avons sélectionné les textes de niveau B2. En effet, nous avons trouvé préférable de sélectionner des textes de ce niveau, car c’est un niveau assez avancé, et ainsi, nous avions plus de chances d’y trouver des usages variés de “on”, et non pas juste des “nous” familiers. De plus, c’est un niveau où nous rencontrons de moins en moins de fautes d’orthographe et où tous les “on” sont correctement orthographiés, sauf rares exceptions. Nous avons donc annoté ces textes à part, sans faire d’accord inter-annotateurs. De plus, nous avons également ajouté des balises à chaque fois que nous rencontrons des “on”, cela afin de pouvoir facilement retrouver ces “on” avec nos scripts. Ces balises sont : <n></n> pour les “on” équivalents à “nous” et <i></i> pour les “on” qui sont des indéfinis. Nous avons décidé de ne pas entraîner le classifieur sur les cas ambigus car ces cas étaient minoritaires dans le niveau B2.
 
 Avant de coder le classifieur, nous avons nettoyé les données récoltées sur B2 afin de les transformer en un format utilisable par le classifieur. Nous avons exporté le tableur en format csv, en retirant toutes les colonnes qui ne sont pas les textes. Ensuite,
-nous avons rédigé [le script filtrer_corpus](filtrer_corpus.py) qui ouvre un fichier contenant notre corpus B2 exporté en csv, et en parcourt chaque ligne afin de ne garder uniquement les lignes contenant des “on”, qu’on trouve grâce à une expression régulière sur les balises. Nous en profitons également pour retirer les balises <br /> qui étaient présentes dans le corpus et qui n’apportent pas d’informations pour le classifieur. On retourne ainsi le corpus sous forme de listes de lignes contenant des “on” et grace a la dernière fonction on met tout ca dans un fichier csv.
+nous avons rédigé le script [filtrer_corpus](filtrer_corpus.py) qui ouvre un fichier contenant notre corpus B2 exporté en csv, et en parcourt chaque ligne afin de ne garder uniquement les lignes contenant des “on”, qu’on trouve grâce à une expression régulière sur les balises. Nous en profitons également pour retirer les balises <br /> qui étaient présentes dans le corpus et qui n’apportent pas d’informations pour le classifieur. On retourne ainsi le corpus sous forme de listes de lignes contenant des “on” et grace a la dernière fonction on met tout ca dans un fichier csv.
 
 Cela ne suffit pas pour notre classifieur : en l’état, nous avons juste des lignes contenant des “on”, ces lignes pouvant contenir plusieurs “on”. Nous devons extraire chaque “on” individuel et leur contexte.
 
