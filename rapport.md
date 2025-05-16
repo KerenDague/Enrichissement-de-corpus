@@ -3,33 +3,20 @@
 
 ## Sommaire
 
-1. Présentation du Projet et du Corpus
-
-    A. Projet et Problématique
-
-    B. Le Corpus TCFLE-8
-
-    C. Nettoyage du Corpus
-
-2. Résultats Statistiques]
-
-    A. Résultats de l’Annotation Manuelle
-
-    B. Accord Inter-Annotateur
-
-    C. Calcul de Significativité
-
-3. Perspectives linguistiques
-
-4. Entraînement d’un classifieur
-
-    A. Nettoyage des données
-
-    B. Extraction des contextes
-
-    C. Entraînement du classifieur et résultats
-
-5. Conclusion
+- I. Présentation du Projet et du Corpus
+    - A. Projet et Problématique
+    - B. Le Corpus TCFLE-8
+    - C. Nettoyage du Corpus
+- II. Résultats Statistiques
+    - A. Résultats de l’Annotation Manuelle
+    - B. Accord Inter-Annotateur
+    - C. Calcul de Significativité
+- III. Perspectives linguistiques
+- IV. Entraînement d’un classifieur
+    - A. Nettoyage des données
+    - B. Extraction des contextes
+    - C. Entraînement du classifieur et résultats
+- V. Conclusion
 
 ---
 ## I - Présentation du Projet et du Corpus
