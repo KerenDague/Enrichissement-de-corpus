@@ -41,7 +41,7 @@ Le corpus contient :
 
 ### 📊 Résultats :
 - **Accuracy moyenne** : ~85%
-- **Kappa de Cohen** : ~0.7
+- **Kappa de Cohen** : ~0.9
 
 ## 👥 Contributeurs
 
